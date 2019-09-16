@@ -1,0 +1,129 @@
+[MASTER]
+load-plugins=
+persistent=yes
+suggestion-mode=yes
+unsafe-load-any-extension=no
+jobs=4
+
+[MESSAGES CONTROL]
+disable=wrong-import-order,  # managed by isort
+        ungrouped-imports, # managed by isort
+        bad-continuation,  # we indent with 4 spaces in the continuation lines, which is not standard
+        missing-final-newline,  # well ... we don't want that final newline (cf. PEP8)
+        duplicate-code,  # too much false positives
+        bad-whitespace,  # not compatible with E231 which is checked by flake8
+        too-few-public-methods,  # it's not a problem, IMHO
+        no-else-return  # if ... return ... else ... would raise it!
+enable=
+
+[REPORTS]
+evaluation=10.0 - ((float(5 * error + warning + refactor + convention) / statement) * 10)
+msg-template={symbol}({msg_id}): {path}:{line}:{column}: {obj}: {msg}
+output-format=text
+reports=yes
+score=yes
+
+[REFACTORING]
+max-nested-blocks=5
+
+[SPELLING]
+
+[FORMAT]
+expected-line-ending-format=LF
+ignore-long-lines=
+indent-after-paren=4
+indent-string='    '
+max-line-length=80
+max-module-lines=2000
+no-space-check=
+single-line-class-stmt=no
+single-line-if-stmt=no
+
+[BASIC]
+bad-names=foo,
+          bar,
+          baz,
+          toto,
+          tutu,
+          tata
+docstring-min-length=-1
+good-names=_
+include-naming-hint=no  # because we use rgx, so this is displayed
+argument-rgx=(([a-z_]([A-Z][a-z0-9]*)*)|(__[a-z_]([A-Z][a-z0-9]*)*__))
+attr-rgx=(([a-z_]([A-Z][a-z0-9]*)*)|(__[a-z_]([A-Z][a-z0-9]*)*__))
+class-attribute-rgx=(([a-z_]([A-Z][a-z0-9]*)*)|(__[a-z_]([A-Z][a-z0-9]*)*__))
+class-rgx=((([A-Z][a-z0-9]*)+)|(_([A-Z][a-z0-9]*)+))
+const-rgx=([A-Z0-9_]+)
+function-rgx=(([a-z_]([A-Z][a-z0-9]*)*)|(__[a-z_]([A-Z][a-z0-9]*)*__))
+inlinevar-rgx=(([a-z_]([A-Z][a-z0-9]*)*)|(__[a-z_]([A-Z][a-z0-9]*)*__))
+method-rgx=(([a-z_]([A-Z][a-z0-9]*)*)|(__[a-z_]([A-Z][a-z0-9]*)*__))
+module-naming-style=snake_case
+no-docstring-rgx=^_  # functions/classes/methods witout docstring needed
+property-classes=abc.abstractproperty,vitriol.base.lazyProperty
+variable-rgx=(([a-z_]([A-Z][a-z0-9]*)*)|(__[a-z_]([A-Z][a-z0-9]*)*__))
+
+[TYPECHECK]
+contextmanager-decorators=contextlib.contextmanager
+generated-members=
+ignore-mixin-members=yes
+ignore-on-opaque-inference=yes
+ignored-classes=optparse.Values,thread._local,_thread._local
+missing-member-hint=yes
+missing-member-hint-distance=1
+missing-member-max-choices=1
+
+[MISCELLANEOUS]
+notes=FIXME,
+      XXX,
+      TODO
+
+[SIMILARITIES]
+ignore-comments=yes
+ignore-docstrings=yes
+ignore-imports=no
+min-similarity-lines=4
+
+[LOGGING]
+logging-modules=logging
+
+[VARIABLES]
+additional-builtins=
+allow-global-unused-variables=yes
+callbacks=cb_,_cb
+dummy-variables-rgx=_+$|(_[a-zA-Z0-9_]*[a-zA-Z0-9]+?$)|dummy|^ignored_|^unused_
+ignored-argument-names=_.*|^ignored_|^unused_
+init-import=yes  # check unused imports in __init__.py
+redefining-builtins-modules=six.moves,past.builtins,future.builtins,io,builtins
+
+[CLASSES]
+defining-attr-methods=__init__,
+                      __new__,
+                      setUp
+exclude-protected=_asdict,
+                  _fields,
+                  _replace,
+                  _source,
+                  _make
+valid-classmethod-first-arg=cls
+valid-metaclass-classmethod-first-arg=mcs
+
+[IMPORTS]
+allow-wildcard-with-all=no
+analyse-fallback-blocks=no
+deprecated-modules=optparse,tkinter.tix
+known-third-party=enchant
+
+[DESIGN]
+max-args=5
+max-attributes=7
+max-bool-expr=5  # in a if statement
+max-branches=12
+max-locals=15
+max-parents=10
+max-public-methods=20
+max-returns=6
+max-statements=50
+min-public-methods=2
+
+[EXCEPTIONS]
+overgeneral-exceptions=Exception  # will emit a warning when being caught
