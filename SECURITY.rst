@@ -8,7 +8,7 @@ Supported Versions
 +-------------+--------------------+
 | Version     | Supported          |
 +=============+====================+
-| Any/others  | :white_check_mark: |
+| Any/others  | Yes                |
 +-------------+--------------------+
 
 Automated validation
