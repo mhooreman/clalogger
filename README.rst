@@ -1,7 +1,7 @@
 clalogger - Python logging from class point of view with easy configuration
 ===========================================================================
 
-See ``doc/index.rst``
+See `doc/index.rst`
 This project provides a python CaLogger class which have to be inherited and
 provides logging which uses loggers based on the class name.
 
@@ -26,4 +26,4 @@ Contacts and copyright
 The author can be contacted on: michael_AT_hooreman_DOT_be
 
 Copyright (C) 2019 Michaël Hooreman
-Released under the terms of the MIT license, see ``LICENSE``.
+Released under the terms of the MIT license, see `LICENSE`.
