@@ -2,7 +2,8 @@ clalogger - Python logging from class point of view with easy configuration
 ===========================================================================
 
 See doc/index.rst
-This project provides a python CaLogger class which have to be inherited and
+
+This project provides a python ClaLogger class which have to be inherited and
 provides logging which uses loggers based on the class name.
 
 It also provides easy configuration features, via a `configfile` file.
