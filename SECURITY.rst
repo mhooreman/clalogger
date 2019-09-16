@@ -5,9 +5,11 @@ Security Policy
 Supported Versions
 ==================
 
++-------------+--------------------+
 | Version     | Supported          |
-| ----------- | ------------------ |
++=============+====================+
 | Any/others  | :white_check_mark: |
++-------------+--------------------+
 
 Automated validation
 ====================
