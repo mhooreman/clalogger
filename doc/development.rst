@@ -15,6 +15,7 @@ pipenv environment:
 
     cd clalogger
     pipenv shell
+    pipenv install -d
     python setup.py develop
 
 .. note::
