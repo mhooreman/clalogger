@@ -21,10 +21,12 @@ can then easily be setup using `python setup.py develop`.
 Building the documentation also requires `sphinx`. It is automatically
 installed via `pipenv install d-`.
 
-Contacts and copyright
-----------------------
+Contacts, issues and copyright
+------------------------------
 
 The author can be contacted on: michael_AT_hooreman_DOT_be
+
+Issues can be described on the github project: https://github.com/mhooreman/clalogger
 
 Copyright (C) 2019 Michaël Hooreman
 Released under the terms of the MIT license, see LICENSE.
