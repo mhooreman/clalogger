@@ -12,8 +12,10 @@ flake8 = "*"
 pylint = "*"
 safety = "*"
 bandit = "*"
+twine = "*"
 
 [packages]
+twine = "*"
 
 [requires]
 python_version = "3.7"
