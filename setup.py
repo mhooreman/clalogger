@@ -11,7 +11,7 @@ import subprocess  # nosec
 import sys
 
 _SETUP_DIR = pathlib.Path(sys.argv[0]).parent.resolve()
-_VERSION = "0.1"  # sphinx: version and release; not used for wheels
+_VERSION = "0.2"  # sphinx: version and release; not used for wheels
 _RELEASE = ".".join([_VERSION, "0"])  # used for wheel and sphinx
 _NAME = "clalogger"
 _GITHUB = 'https://github.com/mhooreman/clalogger'

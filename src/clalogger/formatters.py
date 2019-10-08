@@ -8,7 +8,7 @@ class DetailedFlatFormatter(logging.Formatter):
     """A concrete formatter with lots of details
 
     If provides the timestamp, level name, PID, class.function and
-    file\@line, separated by a tabulation.
+    file _AT_ line, separated by a tabulation.
 
     The message is shown on the next line, every line of the message is
     prefixed by a tablulation.

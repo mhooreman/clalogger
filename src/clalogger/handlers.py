@@ -82,3 +82,24 @@ class MidnightFileHandler(logging.handlers.TimedRotatingFileHandler):
             self, fileName, interval=1, when='midnight'
         )
         _configureHandler(logger, self, formatter, level)
+
+
+class StandardFileHandler(logging.FileHandler):
+    """Logging to a file which rotates every day at midnight
+
+    See Also
+    --------
+    StderrHandlder
+    """
+
+    def __init__(self, logger, fileName, formatter, level=None):
+        """Constructor
+
+        See Also
+        --------
+        StderrHandlder's constructor
+        """
+        logging.FileHandler.__init__(
+            self, fileName
+        )
+        _configureHandler(logger, self, formatter, level)

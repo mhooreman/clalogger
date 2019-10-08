@@ -21,7 +21,7 @@ instanciates provided handlers and formatters.::
             return Level.debug
 
         def setupHandlers(self, logger):
-            handlers.MidnightFileHandler(
+            handlers.StandardFileHandler(
                 logger, pathlib.Path('spam.log'),
                 formatters.DetailedFlatFormatter()
             )
