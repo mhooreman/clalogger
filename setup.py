@@ -12,11 +12,11 @@ import sys
 
 _SETUP_DIR = pathlib.Path(sys.argv[0]).parent.resolve()
 _VERSION = "0.2"  # sphinx: version and release; not used for wheels
-_RELEASE = ".".join([_VERSION, "0"])  # used for wheel and sphinx
+_RELEASE = ".".join([_VERSION, "1"])  # used for wheel and sphinx
 _NAME = "clalogger"
 _GITHUB = 'https://github.com/mhooreman/clalogger'
 _AUTHOR = 'Michaël Hooreman'
-_COPYRIGHT = '2019, %s' % _AUTHOR
+_COPYRIGHT = '2019-2020, %s' % _AUTHOR
 _LICENSE = 'MIT'
 
 
