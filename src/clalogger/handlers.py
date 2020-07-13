@@ -12,10 +12,17 @@ from ._constants import Level
 
 import logging
 import logging.handlers
+import pathlib
 import sys
+import typing
 
 
-def _configureHandler(logger, handler, formatter, level):
+def _configureHandler(
+    logger: logging.Logger,
+    handler: logging.Handler,
+    formatter: logging.Formatter,
+    level: typing.Optional[Level]
+) -> None:
     """Configures the handler
 
     #. Sets the level to the given one or, if None, to the logger's level
@@ -29,7 +36,10 @@ def _configureHandler(logger, handler, formatter, level):
     else:
         if isinstance(level, Level):
             level = level.value
-        handler.setLevel(level)
+        elif isinstance(level, (int, str)):
+            handler.setLevel(level)
+        else:
+            raise TypeError("Wrong level type: %s" % type(level))
     handler.setFormatter(formatter)
     logger.addHandler(handler)
 
@@ -41,7 +51,12 @@ class StderrHandler(logging.StreamHandler):
     This handler will be added to the logger
     """
 
-    def __init__(self, logger, formatter, level=None):
+    def __init__(
+        self,
+        logger: logging.Logger,
+        formatter: logging.Formatter,
+        level: typing.Optional[Level] = None
+    ):
         """Constructor
 
         Parameters
@@ -71,7 +86,13 @@ class MidnightFileHandler(logging.handlers.TimedRotatingFileHandler):
     StderrHandlder
     """
 
-    def __init__(self, logger, fileName, formatter, level=None):
+    def __init__(
+        self,
+        logger: logging.Logger,
+        fileName: typing.Union[str, pathlib.Path],
+        formatter: logging.Formatter,
+        level: typing.Optional[Level] = None
+    ):
         """Constructor
 
         See Also
@@ -92,7 +113,13 @@ class StandardFileHandler(logging.FileHandler):
     StderrHandlder
     """
 
-    def __init__(self, logger, fileName, formatter, level=None):
+    def __init__(
+        self,
+        logger: logging.Logger,
+        fileName: typing.Union[str, pathlib.Path],
+        formatter: logging.Formatter,
+        level: typing.Optional[Level] = None
+    ):
         """Constructor
 
         See Also

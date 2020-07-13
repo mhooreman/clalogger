@@ -1,6 +1,10 @@
 """Implementation of the clalogger main class"""
 
+from ._factory import AbstractLoggerFactory
+
 import abc
+import logging
+import typing
 
 
 class ClaLogger(metaclass=abc.ABCMeta):
@@ -11,11 +15,11 @@ class ClaLogger(metaclass=abc.ABCMeta):
     will be ClaLogger itself.
     """
 
-    _loggers = {}
+    _loggers: typing.Dict[type, logging.Logger] = {}
 
     @property
     @abc.abstractmethod
-    def loggerFactoryClass(self):
+    def loggerFactoryClass(self) -> typing.Type[AbstractLoggerFactory]:
         """The logger factory class
 
         It is advised, for an application, to create a base class which
@@ -29,14 +33,14 @@ class ClaLogger(metaclass=abc.ABCMeta):
         raise NotImplementedError
 
     @property
-    def logger(self):
+    def logger(self) -> logging.Logger:
         """The python logger
 
         It is created using the logger factory class
 
         Returns
         -------
-        logging.logger:
+        logging.Logger:
             The logger
         """
         # pylint: disable=protected-access

@@ -2,6 +2,7 @@
 
 import datetime
 import logging
+import typing
 
 
 class DetailedFlatFormatter(logging.Formatter):
@@ -14,7 +15,7 @@ class DetailedFlatFormatter(logging.Formatter):
     prefixed by a tablulation.
     """
 
-    def __init__(self):
+    def __init__(self) -> None:
         """Constructor
 
         It inherits of logging.Formatter, but is called without argument:
@@ -23,7 +24,7 @@ class DetailedFlatFormatter(logging.Formatter):
         logging.Formatter.__init__(self, self.fmt, None)
 
     @property
-    def fmt(self):
+    def fmt(self) -> str:
         """The format of the event
 
         See the class' documentation.
@@ -36,14 +37,16 @@ class DetailedFlatFormatter(logging.Formatter):
             '%s@%s' % ('%(pathname)s', '%(lineno)d')
         ]) + '%(message)s'
 
-    def formatTime(self, record, datefmt=None):
+    def formatTime(
+        self, record: logging.LogRecord, datefmt: typing.Optional[str] = None
+    ) -> str:
         """Format the date and time, going up to the microsecond"""
         if datefmt is not None:
             raise TypeError("Cannot provide datefmt: hardcoded")
         dt = datetime.datetime.fromtimestamp(record.created)
         return dt.strftime("%Y-%m-%dT%H:%M:%S.%f")
 
-    def formatMessage(self, record):
+    def formatMessage(self, record: logging.LogRecord) -> str:
         """Formats the event
 
         It calls logging.Formatter.formatMessage after having transformed the

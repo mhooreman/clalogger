@@ -9,6 +9,7 @@ from ._constants import Level
 
 import abc
 import logging
+import typing
 
 
 class AbstractLoggerFactory(metaclass=abc.ABCMeta):
@@ -19,7 +20,7 @@ class AbstractLoggerFactory(metaclass=abc.ABCMeta):
     class.
     """
 
-    def __init__(self, callerType):
+    def __init__(self, callerType: type) -> None:
         """Constructor
 
         Parameters
@@ -28,10 +29,10 @@ class AbstractLoggerFactory(metaclass=abc.ABCMeta):
             The ClaLogger child's type having invoked this factory
         """
         self._callerType = callerType
-        self._logger = None
+        self._logger: typing.Optional[logging.Logger] = None
 
     @property
-    def logger(self):
+    def logger(self) -> logging.Logger:
         """The python logger
 
         It is created and configured if not yet done
@@ -50,7 +51,7 @@ class AbstractLoggerFactory(metaclass=abc.ABCMeta):
             self._logger = logger
         return self._logger
 
-    def configureLogger(self, logger):
+    def configureLogger(self, logger: logging.Logger) -> logging.Logger:
         """Configure the logger and returns it
 
         Parameters
@@ -65,14 +66,14 @@ class AbstractLoggerFactory(metaclass=abc.ABCMeta):
         """
         if isinstance(self.level, Level):
             logger.setLevel(self.level.value)
-        elif isinstance(self.level, [int, str]):
+        elif isinstance(self.level, (int, str)):
             logger.setLevel(self.level)
         self.setupHandlers(logger)
         return logger
 
     @property
     @abc.abstractmethod
-    def level(self):
+    def level(self) -> Level:
         """The factory's level
 
         Returns
@@ -82,7 +83,7 @@ class AbstractLoggerFactory(metaclass=abc.ABCMeta):
         raise NotImplementedError
 
     @abc.abstractmethod
-    def setupHandlers(self, logger):
+    def setupHandlers(self, logger: logging.Logger) -> None:
         """Instanciates the handlers
 
         You have to instanciate handlers provided in the clalogger.handlers

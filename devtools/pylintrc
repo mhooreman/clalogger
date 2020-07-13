@@ -12,7 +12,7 @@ disable=wrong-import-order,  # managed by isort
         missing-final-newline,  # well ... we don't want that final newline (cf. PEP8)
         duplicate-code,  # too much false positives
         bad-whitespace,  # not compatible with E231 which is checked by flake8
-        too-few-public-methods,  # it's not a problem, IMHO
+        too-few-public-methods,  # vitriol studies have 0 public method
         no-else-return  # if ... return ... else ... would raise it!
 enable=
 
