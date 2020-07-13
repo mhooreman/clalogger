@@ -7,7 +7,7 @@ import sys
 
 _SETUP_DIR = pathlib.Path(sys.argv[0]).parent.resolve()
 _VERSION = "0.3"  # sphinx: version and release; not used for wheels
-_RELEASE = ".".join([_VERSION, "0"])  # used for wheel and sphinx
+_RELEASE = ".".join([_VERSION, "1"])  # used for wheel and sphinx
 _NAME = "clalogger"
 _GITHUB = 'https://github.com/mhooreman/clalogger'
 _AUTHOR = 'Michaël Hooreman'
@@ -49,6 +49,9 @@ def _setup():
         project_urls={
             'Source': _GITHUB,
         },
+        package_data={
+            'clalogger': ['py.typed']
+        }
     )
 
 
